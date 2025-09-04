@@ -30,7 +30,7 @@ export default function Banner() {
   }, []);
 
   return (
-  <div className="relative mt-6 w-full h-[600px] overflow-hidden">
+  <div className="relative py-9 w-full h-[600px] overflow-hidden">
   {slides.map((slide, index) => (
     <div
       key={index}
@@ -41,7 +41,7 @@ export default function Banner() {
       <img
         src={slide.image}
         alt={slide.title}
-        className="w-full h-full object-cover"
+        className="w-full h-full rounded-4xl mt-8 object-cover"
       />
       {/* Overlay div */}
       <div className="absolute inset-0 bg-opacity-40 flex flex-col justify-center items-center text-center px-4">
