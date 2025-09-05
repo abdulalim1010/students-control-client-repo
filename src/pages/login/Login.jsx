@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { Authcontext } from "./authcotext/Authcontext";
+
 
 const Login = () => {
+  const { login } = useContext(Authcontext); // <-- line added
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-const onSubmit = (data) => {
-  console.log("Login data:", data); // <-- should print here
-  alert("Login successful (demo)!");
+  const onSubmit = async (data) => {
+  console.log("Form Data:", data); // <-- check if email/password exist
+  try {
+    const userCredential = await login(data.email, data.password);
+    console.log("User:", userCredential.user);
+  } catch (error) {
+    console.error("Login failed:", error.code, error.message);
+  }
 };
 
   return (
