@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { Authcontext } from "./login/authcotext/Authcontext";
 
 const Register = () => {
+  const { registration } =useContext(Authcontext)
   const {
     register,
     handleSubmit,
@@ -9,10 +11,16 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Register data:", data);
-    alert("Registration successful (demo)!");
-  };
+ const onSubmit = async (data) => {
+  try {
+    const userCredential = await registration(data.email, data.password);
+    console.log("Registered User:", userCredential.user);
+    alert("Registration successful!");
+  } catch (error) {
+    console.error("Registration failed:", error.code, error.message);
+    alert("Registration failed: " + error.message);
+  }
+};
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 border shadow rounded">

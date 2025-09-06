@@ -13,10 +13,11 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-  console.log("Form Data:", data); // <-- check if email/password exist
+ // <-- check if email/password exist
   try {
     const userCredential = await login(data.email, data.password);
     console.log("User:", userCredential.user);
+    alert("Login successful!");
   } catch (error) {
     console.error("Login failed:", error.code, error.message);
   }

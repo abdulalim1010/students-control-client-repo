@@ -1,25 +1,27 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
-import { Component } from "react";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/Register";
 
-
-
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: MainLayout,
+    element: <MainLayout />,   // এখানে Component এর বদলে element ব্যবহার করতে হবে
     children: [
       {
         index: true,
-      Component:Home
-     }
-,{       path:"/login",Component:Login},{path:"/register",Component:Register}
-    ]
-  }
-])
+        element: <Home />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+    ],
+  },
+]);

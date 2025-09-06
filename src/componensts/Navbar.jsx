@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -23,7 +24,12 @@ const Navbar = () => {
 
       {/* Join Button */}
       <div className="flex-none">
-        <button className="btn btn-primary btn-sm">Join</button>
+       <Link
+            to="/login"
+            className="btn btn-sm bg-blue-800 text-white font-semibold hover:bg-blue-700"
+          >
+            Login
+          </Link>
       </div>
 
       {/* Mobile Hamburger */}
@@ -46,7 +52,12 @@ const Navbar = () => {
             <li><Link to="/tools">Tools</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact</Link></li>
-            <li><button className="btn btn-primary btn-sm mt-2 w-full">Join</button></li>
+            <Link
+            to="/login"
+            className="btn btn-sm bg-blue-800 text-white font-semibold hover:bg-blue-700"
+          >
+            Login
+          </Link>
           </ul>
         </div>
       </div>
