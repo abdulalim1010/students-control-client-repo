@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Authcontext } from "./authcotext/Authcontext";
+import saveUserToDB from "../../datauser/saveUserToDB";
 
 
 const Login = () => {
@@ -12,14 +13,21 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
- // <-- check if email/password exist
+const onSubmit = async (data) => {
   try {
     const userCredential = await login(data.email, data.password);
-    console.log("User:", userCredential.user);
-    alert("Login successful!");
-  } catch (error) {
-    console.error("Login failed:", error.code, error.message);
+    const user = userCredential.user;
+
+    await saveUserToDB({
+      uid: user.uid,
+      name: user.displayName || "Anonymous",
+      email: user.email,
+      image: user.photoURL || "",
+    });
+
+    alert("Login successful and user saved to DB!");
+  } catch (err) {
+    console.error("Login failed:", err);
   }
 };
 
