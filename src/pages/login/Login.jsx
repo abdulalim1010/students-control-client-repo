@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Authcontext } from "./authcotext/Authcontext";
 import saveUserToDB from "../../datauser/saveUserToDB";
+import { Link } from "react-router";
+import SocialLogin from "./SocialLogin";
 
 
 const Login = () => {
@@ -67,6 +69,12 @@ const onSubmit = async (data) => {
           Login
         </button>
       </form>
+      <div><Link to="/register">if you have no accoutn please register</Link></div>
+
+      <div>
+        <h1>Or</h1>
+        <SocialLogin/>
+      </div>
     </div>
   );
 };
