@@ -1,7 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, Outlet } from "react-router-dom";
+import { Authcontext } from "../login/authcotext/Authcontext";
 
 const StudentDashboard = () => {
+  const { user, logOut } = useContext(Authcontext);
+
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
@@ -13,33 +16,36 @@ const StudentDashboard = () => {
           <li><Link to="/dashboard/attendance">Attendance</Link></li>
           <li><Link to="/dashboard/fees">Tuition Fees</Link></li>
           <li><Link to="/dashboard/notifications">Notifications</Link></li>
-          <li><Link to="/">Logout</Link></li>
+          <li>
+            <button
+              onClick={logOut}
+              className="text-red-300 hover:text-red-500"
+            >
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 p-6">
-        <h1 className="text-3xl font-bold mb-6">Welcome, Student!</h1>
-
-        {/* Example Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white p-4 rounded shadow">
-            <h2 className="text-xl font-semibold">📅 Upcoming Exams</h2>
-            <p>Math Exam - 15 Sep, 10:00 AM</p>
-          </div>
-          <div className="bg-white p-4 rounded shadow">
-            <h2 className="text-xl font-semibold">📊 Attendance</h2>
-            <p>Present: 85%</p>
-          </div>
-          <div className="bg-white p-4 rounded shadow">
-            <h2 className="text-xl font-semibold">💰 Tuition Fees</h2>
-            <p>Due: $200</p>
-          </div>
-          <div className="bg-white p-4 rounded shadow">
-            <h2 className="text-xl font-semibold">🔔 Notifications</h2>
-            <p>No new alerts</p>
+        {/* Top Profile Info */}
+        <div className="bg-white p-4 rounded-lg shadow mb-6 flex items-center gap-4">
+          <img
+            src={user?.photoURL || "https://i.ibb.co/MBtjqXQ/user.png"}
+            alt="Profile"
+            className="w-16 h-16 rounded-full border"
+          />
+          <div>
+            <h1 className="text-2xl font-bold">
+              Welcome, {user?.displayName || "Student"}
+            </h1>
+            <p className="text-gray-600">{user?.email}</p>
           </div>
         </div>
+
+        {/* এখানে child route দেখাবে */}
+        <Outlet />
       </div>
     </div>
   );
