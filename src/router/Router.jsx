@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/Register";
 import SocialLogin from "../pages/login/SocialLogin";
+import StudentDashboard from "../pages/dashboard/StudentDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,9 @@ export const router = createBrowserRouter([
         element:<SocialLogin/>
         
 
+      }, {
+        path: "/dashboard",
+        Component:StudentDashboard
       }
     ],
   },
