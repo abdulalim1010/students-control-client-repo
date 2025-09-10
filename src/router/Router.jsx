@@ -8,6 +8,7 @@ import SocialLogin from "../pages/login/SocialLogin";
 import StudentDashboard from "../pages/dashboard/StudentDashboard";
 import Profile from "../pages/dashboard/profile/Profile";
 import UpcomingExams from "../pages/dashboard/upcomingexam/UpcomingExams";
+import Attendance from "../pages/dashboard/attendance/Attendance";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
           {
             path: "exams",
             Component:UpcomingExams
+          },
+          {
+            path: "attendance",
+            Component:Attendance
           }
         ]
       }
