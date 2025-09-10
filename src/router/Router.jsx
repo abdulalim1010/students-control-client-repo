@@ -10,6 +10,7 @@ import Profile from "../pages/dashboard/profile/Profile";
 import UpcomingExams from "../pages/dashboard/upcomingexam/UpcomingExams";
 import Attendance from "../pages/dashboard/attendance/Attendance";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -48,7 +49,8 @@ export const router = createBrowserRouter([
           {
             path: "attendance",
             Component:Attendance
-          }
+          },
+       
         ]
       }
     ],

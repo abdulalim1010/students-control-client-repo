@@ -14,7 +14,7 @@ const StudentDashboard = () => {
           <li><Link to="/dashboard/profile">Profile</Link></li>
           <li><Link to="/dashboard/exams">Upcoming Exams</Link></li>
           <li><Link to="/dashboard/attendance">Attendance</Link></li>
-          <li><Link to="/dashboard/fees">Tuition Fees</Link></li>
+          <li><Link to="/dashboard/fees"> Fees</Link></li>
           <li><Link to="/dashboard/notifications">Notifications</Link></li>
           <li>
             <button
