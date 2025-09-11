@@ -10,6 +10,7 @@ import Profile from "../pages/dashboard/profile/Profile";
 import UpcomingExams from "../pages/dashboard/upcomingexam/UpcomingExams";
 import Attendance from "../pages/dashboard/attendance/Attendance";
 import Fees from "../pages/dashboard/fees/Fees";
+import Notification from "../pages/dashboard/notification/Notification";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
           { path: "exams", element: <UpcomingExams /> },
           { path: "attendance", element: <Attendance /> },
           { path: "fees", element: <Fees /> },
+          {
+            path: "notifications",
+            Component:Notification
+          }
         ],
       },
     ],
