@@ -11,6 +11,7 @@ import UpcomingExams from "../pages/dashboard/upcomingexam/UpcomingExams";
 import Attendance from "../pages/dashboard/attendance/Attendance";
 import Fees from "../pages/dashboard/fees/Fees";
 import Notification from "../pages/dashboard/notification/Notification";
+import Tools from "../pages/tools/Tools";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ export const router = createBrowserRouter([
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       { path: "social-login", element: <SocialLogin /> },
+      {
+        path: "tools",
+        element:<Tools/>
+
+      },
       {
         path: "dashboard",
         element: <StudentDashboard />, // ✅
