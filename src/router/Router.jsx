@@ -13,6 +13,7 @@ import Fees from "../pages/dashboard/fees/Fees";
 import Notification from "../pages/dashboard/notification/Notification";
 import Tools from "../pages/tools/Tools";
 import About from "../pages/About";
+import Contact from "../pages/contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -31,7 +32,12 @@ export const router = createBrowserRouter([
         path: "about",
         element:<About/>
 }
-,
+      ,
+      {
+        path: "contact",
+        element:<Contact/>
+  
+},
       {
         path: "dashboard",
         element: <StudentDashboard />, // ✅
