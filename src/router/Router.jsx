@@ -12,6 +12,7 @@ import Attendance from "../pages/dashboard/attendance/Attendance";
 import Fees from "../pages/dashboard/fees/Fees";
 import Notification from "../pages/dashboard/notification/Notification";
 import Tools from "../pages/tools/Tools";
+import About from "../pages/About";
 
 export const router = createBrowserRouter([
   {
@@ -25,8 +26,12 @@ export const router = createBrowserRouter([
       {
         path: "tools",
         element:<Tools/>
-
-      },
+},
+      {
+        path: "about",
+        element:<About/>
+}
+,
       {
         path: "dashboard",
         element: <StudentDashboard />, // ✅
